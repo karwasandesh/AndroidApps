@@ -1,0 +1,62 @@
+.DOM li{
+padding: 8px;
+background: linear-gradient(#FFF, #fff) repeat scroll 0% 0% #fff;
+width: 98%;
+margin: 2px auto;
+//border: 1px solid #CCC;
+-webkit-animation-delay: 100ms; /* Chrome, Safari, Opera */
+    animation-delay: 100ms;
+	
+}
+.DOM li:hover{
+background: linear-gradient(#FFF, #efefef) repeat scroll 0% 0% #aaa;
+}
+.DOM li:last-child{
+border-bottom: 1px solid #1E90AA;
+}
+#p{
+padding-top:px;
+margin-top: -10px;
+float:right;	
+}
+.DOM h4 {
+margin-top: 2px;
+//margin-bottom: 0px;
+//border-bottom: 1px solid #DDD;
+font-family:monospace;
+color:skyblue;
+font-style: oblique;
+}
+
+.classtbMargin3{
+margin:3px 0px 3px 0px;
+color: #808080;
+}
+.classfloatright{
+float:right;
+
+}
+.classfont{
+font-size:12px;
+margin-right:10px;
+}
+#demo11{
+text-decoration:initial;
+
+
+}
+.classUserId{
+text-decoration:none !important;
+}
+.DOM{
+list-style:none!important;
+padding:0px !important;
+}
+.footercls{
+    position: fixed;
+    bottom: -25px;
+    width: 100%;
+}
+.hov:hover {
+    background-color: #4f2374;
+}

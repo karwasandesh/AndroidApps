@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>My App</title>  
+  
+  <link rel="stylesheet" href="../css/onsenui.css">  
+  <link rel="stylesheet" href="../css/onsen-css-components-blue-basic-theme.css">  
+  <link rel="stylesheet" href="../css/app.css"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <link rel="stylesheet" href="http://49.248.167.26:8081/ab/DB/php/style.css"/>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="../js/angular.js"></script>    
+  <script src="../js/onsenui.js"></script>    
+
+ <!--  <script src="cordova.js"></script> -->
+
+  <script>
+    var module = angular.module('app', ['onsen']);
+  </script>
+<script type="text/javascript">
+var pathname =window.location.search; 
+//alert(pathname);
+var val = pathname;
+var newVal = val.substring(1, val.length);
+        var Newval = newVal;
+   
+$(document).ready(function(){
+   $("#back").click(function(){
+    window.location = "Pages2.html?"+Newval;
+   });
+});
+</script>
+    
+<script type="text/javascript">
+
+
+jQuery(document).ready(function(){
+jQuery.ajax({
+url :"http://49.248.167.26:8081/ab/DB/php/soileh.php",
+type :"POST",
+data:{Newval:Newval},
+
+dataType :"JSON",
+//data :"param=no",
+success : function(html){
+var DOM = jQuery('.DOM') ;
+//console.log(html);
+jQuery.each(html,function(key,value){
+//console.log(value);
+ //alert(value.sample_date);           
+DOM.append("<li><ul><a href='#' class='classUserId' id=idUser"+ value.land_id +" onClick='showHello("+ value.land_id +");'><div class='servn'>ಸರ್ವೇ ಸಂ.</div><div class='servn1'>"+value.khasra_no+"</div><div class='date'> ಮಾದರಿಯ ದಿನಾಂಕ:</div><div class='date1'>"+value.sample_date+"</div></a></ul></li>");
+
+});
+}
+});
+
+//<li><h4 class='classtbMargin3'><span id='s1' class='classtbMargin3 classfloatright classfont' >"+ value.first_name +"</span> </h4><p class='classtbMargin3'>Land Survey No.: "+ value.land_id +" </p> <p id='s' class='classtbMargin3'></p> </li>
+$("#back1").hide();
+$("#back1").click(function(){
+//alert('i m clicked');
+$("#listData").show();
+$("#userData").hide();
+$("#back1").hide();
+});
+});
+</script>
+
+
+<script type="text/javascript">
+function showHello(userID){
+
+$.post("http://49.248.167.26:8081/ab/DB/php/ksoileh2.php",
+  {
+    userID:userID
+   
+  },
+
+  function(data,status){
+  $("#listData").hide();
+  $("#userData").html(data);
+  $("#userData").show();
+  $("#back1").show();
+
+   // alert("Data: " + data + "\nStatus: " + status);
+  });
+}
+</script>
+
+<script>
+function myFunction() {
+    location.reload();
+}
+</script>
+</head>
+
+ <body>
+  <ons-page>
+<div class="navigation-bar">
+  <div class="navigation-bar__left" id="back">
+    <span class="toolbar-button--quiet navigation-bar__line-height">
+      <i class="ion-arrow-left-c"style="font-size:32px; vertical-align:-6px;"></i>
+    </span>
+  </div>
+
+  <div class="navigation-bar__center">
+   K.B.J.N.L
+  </div>
+
+  <div class="navigation-bar__right">
+   
+  </div>
+</div>
+
+<!-- <div id="DOM"></div> -->
+<div id ="listData" class="row"><ul class='DOM' style="width: 100%;"></ul></div>
+<div id ="userData" class="row"></div>
+ <p id="back1">back</p> 
+</ons-toolbar>
+   </ons-page>
+
+  </body>
+
+  </html>
+
+ 

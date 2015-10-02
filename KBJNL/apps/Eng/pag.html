@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>My App</title>  
+  <link rel="stylesheet" href="../gcss/main.css"/>
+  <link rel="stylesheet" href="../css/onsenui.css">  
+  <link rel="stylesheet" href="../css/onsen-css-components-blue-basic-theme.css">  
+  <link rel="stylesheet" href="../css/app.css"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="../js/angular.js"></script>    
+  <script src="../js/onsenui.js"></script>    
+
+ <!--  <script src="cordova.js"></script> -->
+
+  <script>
+    var module = angular.module('app', ['onsen']);
+  </script>
+<script type="text/javascript">
+var pathname =window.location.search; 
+//alert(pathname);
+var val = pathname;
+var newVal = val.substring(1, val.length);
+        var Newval = newVal;
+   
+$(document).ready(function(){
+   $("#back").click(function(){
+    window.location = "Pages2.html?"+Newval;
+   });
+});
+    
+</script>
+
+</head>
+
+ <body>
+
+ <ons-page>
+<div class="navigation-bar">
+  <div class="navigation-bar__left" id="back">
+    <span class="toolbar-button--quiet navigation-bar__line-height">
+      <i class="ion-arrow-left-c"style="font-size:32px; vertical-align:-6px;"></i>
+    </span>
+  </div>
+
+  <div class="navigation-bar__center">
+   KRISHNA BHAGYA JALA NIGAM LTD
+  </div>
+
+  <div class="navigation-bar__right">
+   
+  </div>
+</div>
+<!-- <div class="my-content1">
+<div class="headtext">Soil Health Card</div>
+     <select>
+      <option value="">Please select Year</option>
+      <option value="volvo">2015-2016</option>
+      <option value="volvo">2014-2015</option>
+      <option value="volvo">2013-2014</option>
+      <option value="volvo">2012-2013</option>
+      <option value="volvo">2011-2012</option>
+      <option value="volvo">2010-2011</option>
+      <option value="volvo">2009-2010</option>
+      <option value="volvo">2008-2009</option>
+      <option value="volvo">2007-2008</option>   
+      <option value="volvo">2006-2007</option>
+      <option value="volvo">2005-2006</option>
+      <option value="volvo">2004-2005</option>
+      <option value="saab">2003-2004</option>
+      <option value="opel">2002-2003</option>
+      <option value="audi">2001-2002</option>
+</select>
+         <br>
+         <br>
+         <button class="button">search</button>
+</div>-->
+<div id="ash"></div>
+
+</ons-toolbar>
+   </ons-page>
+
+  </body>
+ </html>

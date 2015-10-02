@@ -1,0 +1,57 @@
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</script>
+
+<script>
+alert("hi");
+
+$.ajax({
+  type: 'GET',
+  url:'http://localhost/demo/demo2.php',
+  //data: postedData,
+  dataType:'text',
+  success:function(data)
+  {
+  alert(data);
+  }
+  
+ });
+
+
+
+/*
+
+$.ajex({
+
+url:"upparvardha.xml",
+
+success:function(data){
+alert(data);
+
+}
+});
+
+
+
+
+
+/*
+$("ul").children().remove();
+$(data).find("U_Current_Data_Spillway").each (function(){
+var info='<li> Name:'+$(this).find("reservoir_level").text()+'</li>;
+
+$("ul").append(info);
+});*/
+
+//}
+
+
+
+</script>
+</head>
+<body>
+
+<ul>hi</ul>
+</body>
+</html>

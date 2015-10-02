@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>My App</title>  
+  
+  <link rel="stylesheet" href="../css/onsenui.css">  
+  <link rel="stylesheet" href="../css/onsen-css-components-blue-basic-theme.css">  
+  <link rel="stylesheet" href="../css/app.css"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="../js/angular.js"></script>    
+  <script src="../js/onsenui.js"></script>    
+
+ <!--  <script src="cordova.js"></script> -->
+
+  <script>
+    var module = angular.module('app', ['onsen']);
+  </script>
+<script type="text/javascript">
+var pathname =window.location.search; 
+//alert(pathname);
+var val = pathname;
+var newVal = val.substring(1, val.length);
+        var Newval = newVal;
+        //alert(newVal);
+          jQuery.ajax({
+          url :'http://49.248.167.26:8081/ab/DB/php/personald.php',
+          type :'post',
+          data:{Newval:Newval},
+          dataType :'JSON',
+          
+          success : function(html){
+          //  $("#id").html(html)
+          jQuery.each(html,function(key,value){
+          
+          var ab=("<div class='tabarea'><div class='tabtext'>First Name:</div><div class='tabtext2'>"+value.first_name+"</div><div class='tabtext'>Father Name:</div><div class='tabtext2'>"+value.father_name+"</div><div class='tabtext'>Category:</div><div class='tabtext2'>"+value.caste+"</div><div class='tabtext'>Farmer UID:</div><div class='tabtext2'>"+value.id_value+"</div><div class='tabtext'>Address:</div><div class='tabtext2'>"+value.address1+"</div><div class='tabtext'>Gender:</div><div class='tabtext2'>"+value.gender+"</div></div>");
+          //var ab=("<div><div >Gender:</div>"+value.gender+"</div>");
+          //alert(ab);Father's/Husband's Name Category Address
+          $("#showtab1").html( ab );
+          var ac=("<div class='tabarea'><div class='tabtext'>Zone:</div><div class='tabtext2'>"+value.office1+"</div><div class='tabtext'>Circle:</div><div class='tabtext2'>"+value.office2+"</div><div class='tabtext'>Division:</div><div class='tabtext2'>"+value.office3+"</div><div class='tabtext'>Sub Division:</div><div class='tabtext2'>"+value.office4+"</div></div>");
+           $("#showtab2").html( ac );
+
+           var ad=("<div class='tabarea'><div class='tabtext'>Name of WUCS  :</div><div class='tabtext2'>"+value.wua_name+"</div><div class='tabtext'>WUCS ID:</div><div class='tabtext2'>"+value.wuaid+"</div><div class='tabtext'>WUCS President : </div><div class='tabtext2'>"+value.name_of_w_u_a_president+"</div><div class='tabtext'>Contact No.:</div><div class='tabtext2'>"+value.contact_no+"</div></div>");
+           $("#showtab4").html( ad );
+
+
+           var ae=("<div class='tabarea'><div class='tabtext'>District  :</div><div class='tabtext3'>"+value.geo1+"</div><div class='tabtext'>Taluk:</div><div class='tabtext3'>"+value.geo2+"</div><div class='tabtext'>Village:</div><div class='tabtext3'>"+value.geo3+"</div><div class='tabtext'>Project:</div><div class='tabtext3'>"+value.project1+"</div><div class='tabtext'>Canal:</div><div class='tabtext3'>"+value.project2+"</div><div class='tabtext'>Distributory/Lateral:</div><div class='tabtext3'>"+value.distru+"</div><div class='tabtext'>Name of Distributory:</div><div class='tabtext3'>"+value.project3+"</div></div>");
+           $("#showtab3").html( ae );
+
+
+          });
+          }
+          });
+        
+          
+</script>
+
+
+ <script type="text/javascript">
+var pathname =window.location.search; 
+//alert(pathname);
+var val = pathname;
+var newVal = val.substring(1, val.length);
+        var Newval = newVal;
+
+
+jQuery(document).ready(function(){
+jQuery.ajax({
+url :"http://49.248.167.26:8081/ab/DB/php/farmerlanddetail.php",
+type :"POST",
+ data:{Newval:Newval},
+dataType :"JSON",
+//data :"param=no",
+success : function(html){
+var DOM = jQuery('#DOM') ;
+console.log(html);
+jQuery.each(html,function(key,value){
+console.log(value);
+
+            
+DOM.append("<div class='tabarea'><div class='tabtext'>Account No.:</div><div class='tabtext2'>"+value.khata_number+"</div><div class='tabtext'>Survey No.:</div><div class='tabtext2'>"+value.khasra_no+"</div><div class='tabtext'>Total Area(In ha):</div><div class='tabtext2'>"+value.area_of_land+"</div><div class='tabtext'>Dry Area (In ha):</div><div class='tabtext2'>"+value.dry_land_area+"</div><div class='tabtext'>Wet Area (In ha):</div><div class='tabtext2'>"+value.wet_land_area+"</div><div class='tabtext'>Latitude:</div><div class='tabtext2'>"+value.latitude+"</div><div class='tabtext'>Longitude:</div><div class='tabtext2'>"+value.longitude+"</div><div class='tabtext'>Land  Type:</div><div class='tabtext2'>"+value.description+"</div></div>");
+
+
+
+
+});
+}
+});
+ });
+
+</script>
+</head>
+
+ <body>
+
+ <ons-page>
+<div class="navigation-bar">
+  <div class="navigation-bar__left" id="back">
+    <span class="toolbar-button--quiet navigation-bar__line-height">
+      <i class="ion-arrow-left-c"style="font-size:32px; vertical-align:-6px;"></i>
+    </span>
+  </div>
+
+  <div class="navigation-bar__center">
+   K.B.J.N.L
+  </div>
+
+  <div class="navigation-bar__right">
+   
+  </div>
+</div>
+  <div class="my-content ScrollStyle" >
+    
+<ul class="list" style="margin-top: -3px;">
+    <li class="list__item list__item--tappable" id ="Tab1">Farmer Details</li>
+  <div id="showtab1"class="tab" ></div>
+
+  <li class="list__item list__item--tappable" id ="Tab2">Office Details</li>
+   <div id="showtab2"class="tab" ></div>
+  
+  <li class="list__item list__item--tappable" id ="Tab3">Water Resource</li>
+   <div id="showtab3"class="tab" ></div>
+  
+  <li class="list__item list__item--tappable" id ="Tab4">WUCS Details</li>
+   <div id="showtab4"class="tab" ></div>
+  
+  <li class="list__item list__item--tappable" id ="Tab5">Farmer Land Details</li>
+   <div id="DOM"class="tab" ></div>
+</ul>
+
+</div>
+
+
+   </ons-page>
+
+  </body>
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+        //$("#showtab1").hide();
+    $("#Tab1").click(function(){
+        $("#showtab1").slideToggle();
+    });
+
+          //$("#showtab2").hide();
+    $("#Tab2").click(function(){
+        $("#showtab2").slideToggle();
+    });
+
+          //$("#showtab3").hide();
+    $("#Tab3").click(function(){
+        $("#showtab3").slideToggle();
+    });
+
+
+          //$("#showtab4").hide();
+    $("#Tab4").click(function(){
+        $("#showtab4").slideToggle();
+    });
+
+
+          //$("#DOM").hide();
+    $("#Tab5").click(function(){
+        $("#DOM").slideToggle();
+    });
+
+   $("#back").click(function(){
+
+    window.location = "Pages2.html?"+Newval;
+   });
+});
+
+</script>
+<style>
+.ScrollStyle
+{
+    max-height: 100%;
+    overflow-y: scroll;
+}
+</style>
+ </html>

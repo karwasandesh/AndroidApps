@@ -1,0 +1,119 @@
+<div data-role="page" id="page2">
+  <div data-role="header" data-postion="fixed">
+		<a href="#myPanel2" data-sidebar-button data-role="button" data-icon="grid" data-iconpos="notext"></a> 
+		<h4>Spillway Gate</h4>
+		<a class="ref_butn" data-sidebar-button data-role="button" data-icon="refresh" data-iconpos="notext"></a>
+		
+  </div>
+<div data-role="panel" id="myPanel2"> 
+    <h4>Menu</h4>
+ <ul data-role="listview" data-inset="true">
+      <li><a href="#pageone"><img src="img/logo.png"  class="ui-li-icon">Home</a></li>
+      <li><a href="#page2"><img src="img/logo.png"  class="ui-li-icon">Spillway</a></li>
+      <li><a href="#page3"><img src="img/logo.png" class="ui-li-icon"> Rain Gauges</a></li>
+      <li><a href="#page4"><img src="img/logo.png" alt="Finland" class="ui-li-icon"> River Gauges</a></li>
+      <li><a href="#page5"><img src="img/logo.png" alt="Germany" class="ui-li-icon"> Flow Meters </a></li>
+      <li><a href="#page6"><img src="img/logo.png" alt="Germany" class="ui-li-icon"> IMP Contact No </a></li>
+    </ul>  </div>
+ 
+<div data-role="main" class="ui-content">
+
+<div class="gater"></div>
+
+  </div>
+  </div>
+<!-- Footer -->
+  <div data-role="footer" data-position="fixed">
+	<h5 class="footerp1"></h5>
+</div>
+  </div>
+
+<!-- End PAge 2 -->
+
+<div data-role="page" id="page3">
+<div data-role="panel" id="myPanel3"> 
+    <h4>Menu</h4>
+ <ul data-role="listview" data-inset="true">
+      <li><a href="#pageone"><img src="img/logo.png"  class="ui-li-icon">Home</a></li>
+      <li><a href="#page2"><img src="img/logo.png"  class="ui-li-icon">Spillway</a></li>
+      <li><a href="#page3"><img src="img/logo.png" class="ui-li-icon"> Rain Gauges</a></li>
+      <li><a href="#page4"><img src="img/logo.png" alt="Finland" class="ui-li-icon"> River Gauges</a></li>
+      <li><a href="#page5"><img src="img/logo.png" alt="Germany" class="ui-li-icon"> Flow Meters </a></li>
+      <li><a href="#page6"><img src="img/logo.png" alt="Germany" class="ui-li-icon"> IMP Contact No </a></li>
+    </ul>  </div>
+   <div data-role="header" data-postion="fixed">
+		<a href="#myPanel3" data-sidebar-button data-role="button" data-icon="grid" data-iconpos="notext"></a> 
+		<h4>Rain Gauges</h4>
+		<a class="ref_butn" data-sidebar-button data-role="button" data-icon="refresh" data-iconpos="notext"></a> 
+  </div>
+ 
+<!-- Footer -->
+ <div data-role="footer" data-position="fixed">
+	<h5 class="footerp1"></h5>
+</div>
+</div>
+<!-- End Page3 -->
+<div data-role="page" id="page4">
+<div data-role="panel" id="myPanel4"> 
+    <h4>Menu</h4>
+ <ul data-role="listview" data-inset="true">
+      <li><a href="#pageone"><img src="img/logo.png"  class="ui-li-icon">Home</a></li>
+      <li><a href="#page2"><img src="img/logo.png"  class="ui-li-icon">Spillway</a></li>
+      <li><a href="#page3"><img src="img/logo.png" class="ui-li-icon"> Rain Gauges</a></li>
+      <li><a href="#page4"><img src="img/logo.png" alt="Finland" class="ui-li-icon"> River Gauges</a></li>
+      <li><a href="#page5"><img src="img/logo.png" alt="Germany" class="ui-li-icon"> Flow Meters </a></li>
+      <li><a href="#page6"><img src="img/logo.png" alt="Germany" class="ui-li-icon"> IMP Contact No </a></li>
+    </ul>  </div>
+   <div data-role="header" data-postion="fixed">
+		<a href="#myPanel4" data-sidebar-button data-role="button" data-icon="grid" data-iconpos="notext"></a> 
+		<h4>River Gauges</h4>
+		<a class="ref_butn" data-sidebar-button data-role="button" data-icon="refresh" data-iconpos="notext"></a> 
+  </div>
+  <!-- Footer -->
+  <div data-role="footer" data-position="fixed">
+	<h5 class="footerp1"></h5>
+</div>
+</div>
+<!-- End Page4 -->
+<div data-role="page" id="page5">
+<div data-role="panel" id="myPanel5"> 
+    <h4>Menu</h4>
+ <ul data-role="listview" data-inset="true">
+      <li><a href="#pageone"><img src="img/logo.png"  class="ui-li-icon">Home</a></li>
+      <li><a href="#page2"><img src="img/logo.png"  class="ui-li-icon">Spillway</a></li>
+      <li><a href="#page3"><img src="img/logo.png" class="ui-li-icon"> Rain Gauges</a></li>
+      <li><a href="#page4"><img src="img/logo.png" alt="Finland" class="ui-li-icon"> River Gauges</a></li>
+      <li><a href="#page5"><img src="img/logo.png" alt="Germany" class="ui-li-icon"> Flow Meters </a></li>
+      <li><a href="#page6"><img src="img/logo.png" alt="Germany" class="ui-li-icon"> IMP Contact N </a></li>
+    </ul>  </div>
+   <div data-role="header" data-postion="fixed">
+		<a href="#myPanel5" data-sidebar-button data-role="button" data-icon="grid" data-iconpos="notext"></a> 
+		<h4>Flow Meters</h4>
+		<a class="ref_butn" data-sidebar-button data-role="button" data-icon="refresh" data-iconpos="notext"></a> 
+  </div>
+  
+  <!-- footer -->
+  <div data-role="footer" data-position="fixed">
+
+	<h5 class="footerp1"></h5>
+</div>
+</div>
+<!-- End Page5 -->
+<div data-role="page" id="page6">
+<div data-role="panel" id="myPanel6"> 
+    <h4>Menu</h4>
+ <ul data-role="listview" data-inset="true">
+      <li><a href="#pageone"><img src="img/logo.png"  class="ui-li-icon">Home</a></li>
+      <li><a href="#page2"><img src="img/logo.png"  class="ui-li-icon">Spillway</a></li>
+      <li><a href="#page3"><img src="img/logo.png" class="ui-li-icon"> Rain Gauges</a></li>
+      <li><a href="#page4"><img src="img/logo.png" alt="Finland" class="ui-li-icon"> River Gauges</a></li>
+      <li><a href="#page5"><img src="img/logo.png" alt="Germany" class="ui-li-icon"> Flow Meters </a></li>
+      <li><a href="#page6"><img src="img/logo.png" alt="Germany" class="ui-li-icon"> IMP Contact No </a></li>
+    </ul>  </div>
+   <div data-role="header" data-postion="fixed">
+		<a href="#myPanel6" data-sidebar-button data-role="button" data-icon="grid" data-iconpos="notext"></a> 
+		<h4>IMP Contact No</h4>
+		<a class="ref_butn" data-sidebar-button data-role="button" data-icon="refresh" data-iconpos="notext"></a> 
+  </div>
+</div>
+<!-- End Page6 -->

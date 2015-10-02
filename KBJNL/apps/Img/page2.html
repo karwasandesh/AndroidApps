@@ -1,0 +1,62 @@
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+
+var pathname =window.location.search; 
+//alert(pathname);
+var val = pathname;
+var newVal = val.substring(1, val.length);
+//alert(newVal);
+
+$(document).ready(function(){
+
+$("#p_d").click(function(){
+
+ 
+ 
+//var u_name = $("#name").val();
+//var password =125 ;
+var Newval = newVal;
+alert(Newval);
+$.ajax({
+url:'personald.php',
+type:'post',
+data:{Newval:Newval},
+success:function(data){
+$("#result").html(data);
+alert(data);
+if(data == 0)
+{
+
+window.location = "http://www.stackoverflow.com";
+}
+else
+{
+//$("#container").slideUp('slow').slideDown('slow');
+//$("#user").val('');
+//$("#password").val('');
+
+}
+}
+});
+});
+});
+
+
+
+
+</script>
+
+</head>
+<body> 
+<div id="container">
+<input type="button" name="p_d" id="p_d"  value="Personal Details"><br><br>
+<input type="button" name="w_d" id="w_d" value="Water Demands"><br><br>
+<input type="button" name="b_p" id="b_p" value="Billing and Payment Details"><br><br>
+<input type="button" name="s_h" id="s_h" value="Soil Health Card"><br><br>
+ 
+</div>
+<div id="result"></div>
+</body>
+</html>

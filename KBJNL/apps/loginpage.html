@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>My App</title>  
+  
+  <link rel="stylesheet" href="css/onsenui.css">  
+  <link rel="stylesheet" href="css/onsen-css-components-blue-basic-theme.css">  
+  <link rel="stylesheet" href="css/app.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="js/angular.js"></script>    
+  <script src="js/onsenui.js"></script>    
+
+ <!--  <script src="cordova.js"></script> -->
+
+  <script>
+    var module = angular.module('app', ['onsen']);
+  </script>
+
+ <script type="text/javascript">
+
+$(document).ready(function(){
+
+$("#sub").click(function(){
+
+  if($("#name").val() == "" ){
+   $("#name").focus();
+   $("#result2").html("Enter the Login ID");
+   return false;
+  }
+  else if($("#password").val() == "" ){
+   $("#password").focus();
+   $("#result2").html("Enter the Password");
+   return false;
+  }
+
+//alert("hiiiii");
+var u_name = localStorage.getItem = $('#name').val();
+ var password = localStorage.getItem = $('#password').val();
+
+$.ajax({
+url:"http://49.248.167.26:8081/ab/DB/php/login.php",
+type:'post',
+data:{name:u_name,password:password},
+success:function(data){
+//$("#result").html(data);
+//alert(data);
+//$('#remember_me').click(function() {
+                    
+                    localStorage.usrname = $('#name').val();
+                    localStorage.pass = $('#password').val();
+//alert(id);
+
+if(data > 0)
+{
+var id = (data);
+
+
+//alert(id);
+localStorage.ids = id;
+window.location = "Eng/Pages2.html?"+id;
+$("#result1").html(data);
+}
+else
+{
+$("#container").slideUp('slow').slideDown('slow');
+$("#user").val('');
+$("#password").val('');
+
+$("#result2").html("*  Wrong Password or Login ID");
+ $("#result2").fadeIn(10000);
+}
+}
+});
+});
+});
+
+</script>
+
+  <style>
+#errorBox{
+ color:#F00;
+ }
+  </style>
+</head>
+
+ <body >
+   <ons-page>
+
+          <div class="navigation-bar">
+  <div class="navigation-bar__left">
+    
+  </div>
+
+  <div class="navigation-bar__center">
+   K.B.J.N.L
+  </div>
+
+  <div class="navigation-bar__right">
+  
+  </div>
+</div>
+
+    
+       <div class="profile-card">
+
+      <br><br>
+      <img src="Img/KBJNqL.JPG" class="profile-image">
+    </div>
+      
+      <div class="login-form">
+          <div id="container">
+        <input type="text" class="text-input--underbar" placeholder="Login ID" id="name" name="name" checked >
+        <input type="password" class="text-input--underbar" placeholder="Password" id="password" name="password" checked >
+        <br><br>
+        <ons-button modifier="large" class="login-button" name="sub" id="sub" value="submit">Log In</ons-button>
+        <br><br>
+       </div>
+     <div id="result"></div>
+     <div id="result2" style="color:red"></div>
+      </div>
+  
+    </ons-page>
+
+  </body>
+ 
+
+
+
+</html>

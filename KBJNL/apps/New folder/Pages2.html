@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>My App</title>  
+  
+  <link rel="stylesheet" href="css/onsenui.css">  
+  <link rel="stylesheet" href="css/onsen-css-components-blue-basic-theme.css">  
+  <link rel="stylesheet" href="css/app.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="js/angular.js"></script>    
+  <script src="js/onsenui.js"></script>    
+
+ <!--  <script src="cordova.js"></script> -->
+
+  <script>
+    var module = angular.module('app', ['onsen']);
+  </script>
+
+</head>
+
+ <body>
+ <ons-page>
+<div class="navigation-bar">
+  <div class="navigation-bar__left">
+    
+  </div>
+
+  <div class="navigation-bar__center">
+   K.B.J.N
+  </div>
+
+  <div class="navigation-bar__right">
+    <span class="toolbar-button--quiet navigation-bar__line-height">
+      <i class="ion-navicon"
+        style="font-size:32px; vertical-align:-6px;"></i>
+    </span>
+  </div>
+</div>
+       <div class="profile-card">
+        <p style="color:blue; font-size:14px">KRISHNA BHAGYA JALA NIGAM LTD</p>
+        <br>
+        <img src="Img/KBJNqL.JPG" class="profile-image">
+       </div>
+        <div class="login-form">
+       <button class="button button--large" name="p_d" id="p_d" >Personal Details</button><br>
+       <button class="button button--large--cta" name="w_d" id="w_d">Water Demands</button><br>
+       <button class="button button--large--ctaq" name="b_p" id="b_p" >Billing and Payment Details</button><br>
+       <button class="button button--large--ctag" name="s_h" id="s_h" >Soil Health Card</button><br>
+
+     </div>
+     <input type="button" id="clear" value="clear"/> 
+
+    </ons-page>
+
+  </body>
+  
+<script type="text/javascript">
+var pathname =window.location.search; 
+//alert(pathname);
+var val = pathname;
+var newVal = val.substring(1, val.length);
+//alert(newVal);
+
+$(document).ready(function(){
+var ids =newVal;
+//alert(ids);
+$("#p_d").click(function(){
+  var ids =newVal;
+
+//window.location.href = "personal.html?"+ids;
+window.location = "Personald.html?"+ids;
+
+});
+
+$("#s_h").click(function(){
+  var ids =newVal;
+
+//window.location.href = "personal.html?"+ids;
+window.location = "soilnhelth.html?"+ids;
+
+});
+
+$("#b_p").click(function(){
+  var ids =newVal;
+
+//window.location.href = "personal.html?"+ids;
+window.location = "Billingpage.html?"+ids;
+
+});
+});
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+  $("#clear").click(function(){
+   localStorage.clear();
+    window.location = "main.html";
+  });
+
+  });
+
+</script>
+</html>

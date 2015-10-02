@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>My App</title>  
+  
+  <link rel="stylesheet" href="../css/onsenui.css">  
+  <link rel="stylesheet" href="../css/onsen-css-components-blue-basic-theme.css">  
+  <link rel="stylesheet" href="../css/app.css"/>
+  <link rel="stylesheet" href="../css/style1.css"/>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="../js/angular.js"></script>    
+  <script src="../js/onsenui.js"></script>    
+
+ <!--  <script src="cordova.js"></script> -->
+
+  <script>
+    var module = angular.module('app', ['onsen']);
+  </script>
+<script type="text/javascript">
+var pathname =window.location.search; 
+//alert(pathname);
+var val = pathname;
+var newVal = val.substring(1, val.length);
+        var Newval = newVal;
+        //alert(newVal);
+          jQuery.ajax({
+          url :'http://49.248.167.26:8081/ab/DB/php/personald.php',
+          type :'post',
+          data:{Newval:Newval},
+          dataType :'JSON',
+          
+          success : function(html){
+          //  $("#id").html(html)
+          jQuery.each(html,function(key,value){
+          
+          var ab=("<div class='tabarea'><div class='tabtext'>ರೈತನ ಹೆಸರು :</div><div class='tabtext2'>"+value.first_name+"</div><div class='tabtext'>ತಂದೆಯ/ಗಂಡನ ಹೆಸರು:</div><div class='tabtext2'>"+value.father_name+"</div><div class='tabtext'>ವರ್ಗ:</div><div class='tabtext2'>"+value.cate_hin+"</div><div class='tabtext'>ರೈತನ ವಿಶಿಷ್ಟ ಗುರುತಿನ ಸಂ.:</div><div class='tabtext2'>"+value.id_value+"</div><div class='tabtext'>ವಿಳಾಸ:</div><div class='tabtext2'>"+value.address1+"</div><div class='tabtext'>ಲಿಂಗ:</div><div class='tabtext2'>"+value.gender+"</div></div>");
+          //var ab=("<div><div >Gender:</div>"+value.gender+"</div>");
+          //alert(ab);Father's/Husband's Name Category Address
+          $("#showtab1").html( ab );
+          var ac=("<div class='tabarea'><div class='tabtext'>ವಲಯ:</div><div class='tabtext2'>"+value.office1h+"</div><div class='tabtext'>ವೃತ್ತ:</div><div class='tabtext2'>"+value.office2h+"</div><div class='tabtext'>ವಿಭಾಗ:</div><div class='tabtext2'>"+value.office3h+"</div><div class='tabtext'>ಉಪವಿಭಾಗ:</div><div class='tabtext2'>"+value.office4h+"</div></div>");
+           $("#showtab2").html( ac );
+
+           var ad=("<div class='tabarea'><div class='tabtext'>ನಿ. ಬ. ಸ. ಸಂ ಹೆಸರು :</div><div class='ltabtext2'>"+value.wua_name+"</div><div class='tabtext'>ನಿ. ಬ. ಸ. ಸಂ ಗುರುತಿನ:</div><div class='ltabtext2'>"+value.wuaid+"</div><div class='tabtext'>ನಿ. ಬ. ಸ. ಸಂ ಅಧ್ಯಕ್ಷರ ಹೆಸರು :</div><div class='ltabtext2'>"+value.name_of_w_u_a_president+"</div><div class='tabtext'>ಸಂಪರ್ಕ ಸಂಖ್ಯೆ:</div><div class='ltabtext2'>"+value.contact_no+"</div></div>");
+           $("#showtab4").html( ad );
+
+
+           var ae=("<div class='tabarea'><div class='tabtext'>ಜಿಲ್ಲೆ  :</div><div class='tabtext3'>"+value.geoh1+"</div><div class='tabtext'>ತಾಲೂಕ:</div><div class='tabtext3'>"+value.geoh2+"</div><div class='tabtext'> ಗ್ರಾಮ </div><div class='tabtext3'>"+value.geoh3+"</div><div class='tabtext'>ಯೋಜನೆ:</div><div class='tabtext3'>"+value.projecth1+"</div><div class='tabtext'>ಕಾಲುವೆ:</div><div class='tabtext3'>"+value.projecth2+"</div><div class='tabtext'>ವಿತರಣಾ/ ಲ್ಯಾಟರಲ್:</div><div class='tabtext3'>"+value.distru+"</div><div class='tabtext'>ವಿತರಣಾ :</div><div class='tabtext3'>"+value.projecth3+"</div></div>");
+           $("#showtab3").html( ae );
+
+
+          });
+          }
+          });
+        
+          
+</script>
+
+
+ <script type="text/javascript">
+var pathname =window.location.search; 
+//alert(pathname);
+var val = pathname;
+var newVal = val.substring(1, val.length);
+        var Newval = newVal;
+
+
+jQuery(document).ready(function(){
+jQuery.ajax({
+url :"http://49.248.167.26:8081/ab/DB/php/farmerlanddetail.php",
+type :"POST",
+ data:{Newval:Newval},
+dataType :"JSON",
+//data :"param=no",
+success : function(html){
+var DOM = jQuery('#DOM') ;
+console.log(html);
+jQuery.each(html,function(key,value){
+console.log(value);
+
+
+            
+DOM.append("<div class='tabarea'><div class='tabtext'>ಖಾತೆಯ ಸಂ.:</div><div class='tabtext2'>"+value.khata_number+"</div><div class='tabtext'>ಸರ್ವೇ ಸಂ.:</div><div class='tabtext2'>"+value.khasra_no+"</div><div class='tabtext'>ಒಟ್ಟು ಕ್ಷೇತ್ರ(In ha):</div><div class='tabtext2'>"+value.area_of_land+"</div><div class='tabtext'>ಒಣ ಕ್ಷೇತ್ರ (In ha):</div><div class='tabtext2'>"+value.dry_land_area+"</div><div class='tabtext'>ಒದ್ದೆ ಕ್ಷೇತ್ರ (In ha):</div><div class='tabtext2'>"+value.wet_land_area+"</div><div class='tabtext'>ಅಕ್ಷಾಂಶ:</div><div class='tabtext2'>"+value.latitude+"</div><div class='tabtext'>ರೇಖಾಂಶ:</div><div class='tabtext2'>"+value.longitude+"</div><div class='tabtext'>ಭೂ ಹಿಡುವಳಿಯ ಪ್ರಕಾರಗಳು:</div><div class='tabtext2'>"+value.description_hindi+"</div></div>");
+
+
+
+
+});
+}
+});
+ });
+
+</script>
+</head>
+
+ <body>
+
+ <ons-page>
+<div class="navigation-bar">
+  <div class="navigation-bar__left" id="back">
+    <span class="toolbar-button--quiet navigation-bar__line-height">
+      <i class="ion-arrow-left-c"style="font-size:32px; vertical-align:-6px;"></i>
+    </span>
+  </div>
+
+  <div class="navigation-bar__center">
+   K.B.J.N.L 
+  </div>
+
+  <div class="navigation-bar__right">
+   
+  </div>
+</div>
+  <div class="my-content">
+    
+<ul class="list" style="margin-top: -30px;">
+    <li class="list__item list__item--tappable" id ="Tab1">ರೈತರ ವಿವರಗಳು</li>
+  <div id="showtab1"class="tab" ></div>
+
+  <li class="list__item list__item--tappable" id ="Tab2">ಕಾರ್ಯಾಲಯದ ವಿವರಗಳು</li>
+   <div id="showtab2"class="tab" ></div>
+  
+  <li class="list__item list__item--tappable" id ="Tab3">ನೀರಿನ ಸಂಪನ್ಮೂಲ</li>
+   <div id="showtab3"class="tab" ></div>
+  
+  <li class="list__item list__item--tappable" id ="Tab4">ನಿ. ಬ. ಸ. ಸಂ  ವಿವರಗಳು</li>
+   <div id="showtab4"class="tab" ></div>
+  
+  <li class="list__item list__item--tappable" id ="Tab5">ರೈತನ ಭೂಮಿಯ ವಿವರಗಳು</li>
+   <div id="DOM"class="tab" ></div>
+</ul>
+
+</div>
+
+
+   </ons-page>
+
+  </body>
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+        $("#showtab1").hide();
+    $("#Tab1").click(function(){
+        $("#showtab1").slideToggle();
+    });
+
+          $("#showtab2").hide();
+    $("#Tab2").click(function(){
+        $("#showtab2").slideToggle();
+    });
+
+          $("#showtab3").hide();
+    $("#Tab3").click(function(){
+        $("#showtab3").slideToggle();
+    });
+
+
+          $("#showtab4").hide();
+    $("#Tab4").click(function(){
+        $("#showtab4").slideToggle();
+    });
+
+
+          $("#DOM").hide();
+    $("#Tab5").click(function(){
+        $("#DOM").slideToggle();
+    });
+
+   $("#back").click(function(){
+
+    window.location = "Pages2.html?"+Newval;
+   });
+});
+
+</script>
+
+ </html>

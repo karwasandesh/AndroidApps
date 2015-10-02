@@ -1,0 +1,50 @@
+<html>
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>
+ $(function() { 
+                    $('#username').val(localStorage.usrname);
+                    $('#pass').val(localStorage.pass);
+                    $('#remember_me').click(function() {
+                    localStorage.usrname = $('#username').val();
+                    localStorage.pass = $('#pass').val();
+
+             
+                });
+                            localStorage.getItem('username')
+                            var taste =  localStorage.getItem('usrname', 'username')
+
+                             localStorage.getItem('pass')
+                            var taste1 =  localStorage.getItem('pass', 'pass')
+                            
+                            //alert(taste);
+                           // alert(taste1);
+                            if ((taste===null) && (taste1 === null)) {
+                                
+                                     window.location = "loginpage.html";
+                            }
+
+                            else
+                            {
+
+                                 window.location = "Eng/Pages2.html";
+                            }
+
+            });
+
+        </script>
+
+        <script type="text/javascript">
+
+        	$(document).ready(function(){
+$("#clear").click(function(){
+ localStorage.clear();
+  window.location = "main.html";
+});
+
+});
+        </script>
+        </head>
+        <body>
+    </body>    
+</html>

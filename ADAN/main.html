@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Include meta tag to ensure proper rendering and touch zooming -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Include jQuery Mobile stylesheets -->
+  <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/codecss.css">
+  	<link rel="stylesheet" href="css/cssCharts.css">
+  
+  <!-- Include the jQuery library -->
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <!-- Include the jQuery Mobile library -->
+  <script src="js/jquery.mobile-1.4.5.min.js"></script>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript" charset="utf-8">
+document.addEventListener("offline", onOffline, false);
+function onOffline()
+ {
+    		alert("Internet not connected");
+ }
+    	document.addEventListener("online", onOnline, false);
+</script>
+
+        <script src="js/jquery.chart.js"></script>
+
+
+  <script type="text/javascript">
+function showModal(){
+  $("body").append('<div class="modalWindow"/>');
+  $.mobile.showPageLoadingMsg();
+  setTimeout('hideModal()', 2000);
+}
+
+function hideModal(){
+ $(".modalWindow").remove();
+  $.mobile.hidePageLoadingMsg();
+
+}
+  
+  </script>
+  <script type="text/javascript">
+$(document).ready(function(){
+  $(".ref_butn").click(function(){
+ location.reload();
+  });
+});
+  
+  </script>
+  <script type="text/javascript">
+jQuery(document).ready(function(){
+jQuery.ajax({
+url :"http://www.mechatronicspune.com/Android/adam/Current_Dam_Level.php",
+type :"POST",
+dataType :"JSON",
+data :"param=no",
+success : function(html){
+var DOM = jQuery('#DOM') ;
+console.log(html);
+jQuery.each(html,function(key,value){
+console.log(value);
+//DOM.append("<li><a href=""><h3>" + value.user_id + "</h3><p class="ui-li-aside">"+ value.about_us +"</p></a>" );
+            
+DOM.append("<li><div class='HEDTOTAL_CONTENTS'>TOTAL CONTENTS</div> <div class='TOTAL_CONTENTS'>"+ value.Content +"Mcum</div><div class='HEDLIVE_CONTENTS'>LIVE CONTENTS</div><div class='CONTHEDLIVE_CONTENTS'> "+ value.Contents_lives +" Mcum</div><div class='HED_CONTENTS'>% CONTENTS</div><div class='CONTENTS'>"+ value.Content_x0028__x0025__x0029_+"%</div><div class='HED_INFLOW_RATE'>INFLOW RATE</div><div class='INFLOW_RATE'>"+ value.Inflow_rate+"</div><div class='HED_DISCHARGE_RATE'>DISCHARGE RATE</div><div class='DISCHARGE_RATE'>"+ value.Disch_rate+"</div> </li>");
+
+});
+}
+});
+ });
+
+</script>
+</head>
+<body>
+<!---------------------Page 1-------------------------->
+
+<div data-role="page" id="page1">
+  <div data-role="header" data-position="fixed">
+    <a href="#myPanel" data-sidebar-button data-role="button" data-icon="grid" data-iconpos="notext"></a> 
+		<h4>ADAN </h4>
+		<a class="ref_butn" data-sidebar-button data-role="button" data-icon="refresh" data-iconpos="notext" onclick="showModal()"></a> 
+  </div>
+<div data-role="panel" id="myPanel"> 
+    <h4>Menu</h4>
+ <ul data-role="listview" data-inset="true">
+
+      <li><a href="#page2"><img src="img/logo.png"  class="ui-li-icon">Spillway Gate</a></li>
+      <li><a href="#page3"><img src="img/logo.png" class="ui-li-icon"> Rain Gauges</a></li>
+      <li><a href="#page4"><img src="img/logo.png" alt="Finland" class="ui-li-icon"> River Gauges</a></li>
+    <li><a href="#page7"><img src="img/logo.png" alt="Germany" class="ui-li-icon">Salient Features Of Dam</a></li>
+      <li><a href="#page6"><img src="img/logo.png" alt="Germany" class="ui-li-icon"> IMP Contact No </a></li>
+      
+    </ul>  </div>
+  <div data-role="main" class="ui-content">
+		<table>
+		<tr>
+	<td>	<div class="leftdiv">
+			
+<!-- 			<ul class="bar-chart" data-bars="[]" data-max="345" data-unit="mtr" data-width="12"></ul>     -->
+			<div id="id" class="chart"></div> 
+			<p style="font-size: 13px;padding-left:48px;">372.50 </p>
+			<p style="font-size: 13px;"><b>RESERVOIR LEVEL</b></p>
+		</div ></td>
+		<td><div class="rightdiv">
+		<div><ul id="DOM" data-role="listview"></ul></div>
+		</div></td>
+</tr>
+		</table> 
+  </div>
+
+  <div data-role="footer" data-position="fixed">
+	<h5 class="footerp1"></h5>
+  </div>
+</div>
+<div data-role="page" id="page2">
+  <div data-role="header" data-position="fixed">
+    <a href="#myPane2" data-sidebar-button data-role="button" data-icon="grid" data-iconpos="notext"></a> 
+		<h4>Spillway Gate</h4>
+		<a class="ref_butn" data-sidebar-button data-role="button" data-icon="refresh" data-iconpos="notext" onclick="showModal()"></a> 
+  </div>
+<div data-role="panel" id="myPane2"> 
+    <h4>Menu</h4>
+ <ul data-role="listview" data-inset="true">
+
+      <li><a href="#page1"><img src="img/logo.png"  class="ui-li-icon ref_butn">Home</a></li>
+      <li><a href="#page3"><img src="img/logo.png" class="ui-li-icon"> Rain Gauges</a></li>
+      <li><a href="#page4"><img src="img/logo.png" alt="Finland" class="ui-li-icon"> River Gauges</a></li>
+    <li><a href="#page7"><img src="img/logo.png" alt="Germany" class="ui-li-icon">Salient Features Of Dam</a></li>
+      <li><a href="#page6"><img src="img/logo.png" alt="Germany" class="ui-li-icon"> IMP Contact No </a></li>
+      
+    </ul>  </div>
+  <div data-role="main" class="ui-content">
+		<div class="gater"></div> 
+  </div>
+
+  <div data-role="footer" data-position="fixed">
+	<h5 class="footerp1"></h5>
+  </div>
+</div>  	
+<!-- End Page2 -->
+<div data-role="page" id="page3">
+  <div data-role="header" data-position="fixed">
+    <a href="#myPane3" data-sidebar-button data-role="button" data-icon="grid" data-iconpos="notext"></a> 
+		<h4>Rain Gauges</h4>
+		<a class="ref_butn" data-sidebar-button data-role="button" data-icon="refresh" data-iconpos="notext" onclick="showModal()"></a> 
+  </div>
+<div data-role="panel" id="myPane3"> 
+    <h4>Menu</h4>
+ <ul data-role="listview" data-inset="true">
+
+      <li><a href="#page1"><img src="img/logo.png"  class="ui-li-icon ref_butn">Home</a></li>
+      <li><a href="#page2"><img src="img/logo.png" class="ui-li-icon"> Spillway Gate</a></li>
+      <li><a href="#page4"><img src="img/logo.png" alt="Finland" class="ui-li-icon"> River Gauges</a></li>
+    <li><a href="#page7"><img src="img/logo.png" alt="Germany" class="ui-li-icon">Salient Features Of Dam</a></li>
+      <li><a href="#page6"><img src="img/logo.png" alt="Germany" class="ui-li-icon"> IMP Contact No </a></li>
+      
+    </ul>  </div>
+  <div data-role="main" class="ui-content">
+	<div class="raingauges"></div>	
+  </div>
+
+  <div data-role="footer" data-position="fixed">
+	<h5 class="footerp1"></h5>
+  </div>
+</div>
+<!-- End Page3 -->
+
+<div data-role="page" id="page4">
+  <div data-role="header" data-position="fixed">
+    <a href="#myPane4" data-sidebar-button data-role="button" data-icon="grid" data-iconpos="notext"></a> 
+		<h4>River Gauges</h4>
+		<a class="ref_butn" data-sidebar-button data-role="button" data-icon="refresh" data-iconpos="notext" onclick="showModal()"></a> 
+  </div>
+<div data-role="panel" id="myPane4"> 
+    <h4>Menu</h4>
+ <ul data-role="listview" data-inset="true">
+
+      <li><a href="#page1"><img src="img/logo.png"  class="ui-li-icon ref_butn">Home</a></li>
+      <li><a href="#page3"><img src="img/logo.png" class="ui-li-icon"> Spillway Gate</a></li>
+      <li><a href="#page3"><img src="img/logo.png" class="ui-li-icon"> Rain Gauges</a></li>
+    <li><a href="#page7"><img src="img/logo.png" alt="Germany" class="ui-li-icon">Salient Features Of Dam</a></li>
+      <li><a href="#page6"><img src="img/logo.png" alt="Germany" class="ui-li-icon"> IMP Contact No </a></li>
+      
+    </ul>  </div>
+  <div data-role="main" class="ui-content">
+		<div class="revergauges"></div>
+  </div>
+
+  <div data-role="footer" data-position="fixed">
+	<h5 class="footerp1"></h5>
+  </div>
+</div>
+<!--End Page4  -->
+
+<div data-role="page" id="page6">
+  <div data-role="header" data-position="fixed">
+    <a href="#myPane6" data-sidebar-button data-role="button" data-icon="grid" data-iconpos="notext"></a> 
+		<h4>Contact No</h4>
+		<a class="ref_butn" data-sidebar-button data-role="button" data-icon="refresh" data-iconpos="notext" onclick="showModal()"></a> 
+  </div>
+<div data-role="panel" id="myPane6"> 
+    <h4>Menu</h4>
+ <ul data-role="listview" data-inset="true">
+
+      <li><a href="#page1"><img src="img/logo.png"  class="ui-li-icon ref_butn">Home</a></li>
+      <li><a href="#page2"><img src="img/logo.png" class="ui-li-icon"> Spillway Gate</a></li>
+      <li><a href="#page3"><img src="img/logo.png" class="ui-li-icon"> Rain Gauges</a></li>
+      <li><a href="#page4"><img src="img/logo.png" alt="Finland" class="ui-li-icon"> River Gauges</a></li>
+    <li><a href="#page7"><img src="img/logo.png" alt="Germany" class="ui-li-icon">Salient Features Of Dam</a></li>
+     
+      
+    </ul>  </div>
+  <div data-role="main" class="ui-content">
+
+  </div>
+
+  <div data-role="footer" data-position="fixed">
+	<h5 class="footerp1"></h5>
+  </div>
+</div>
+
+<div data-role="page" id="page7">
+  <div data-role="header" data-position="fixed">
+    <a href="#myPane7" data-sidebar-button data-role="button" data-icon="grid" data-iconpos="notext"></a> 
+		<h4>Salient Features Of Dam</h4>
+		<a class="ref_butn" data-sidebar-button data-role="button" data-icon="refresh" data-iconpos="notext" onclick="showModal()"></a> 
+  </div>
+<div data-role="panel" id="myPane7"> 
+    <h4>Menu</h4>
+ <ul data-role="listview" data-inset="true">
+
+      <li><a href="#page1"><img src="img/logo.png"  class="ui-li-icon ref_butn">Home</a></li>
+      <li><a href="#page2"><img src="img/logo.png" class="ui-li-icon"> Spillway Gate</a></li>
+      <li><a href="#page3"><img src="img/logo.png" class="ui-li-icon"> Rain Gauges</a></li>
+      <li><a href="#page4"><img src="img/logo.png" alt="Finland" class="ui-li-icon"> River Gauges</a></li>
+    <li><a href="#page6"><img src="img/logo.png" alt="Germany" class="ui-li-icon">IMP Contact No </a></li>
+     
+      
+    </ul>  </div>
+  <div data-role="main" class="ui-content">
+<table class='tablepr' ><tr><th class='tabtd4'>Attribute</th><th class='tabtd4'>Value</th></tr><tr><td class='tabtd9'>Name of Dam</td><td class='tabtd9'>Adan</td></tr><tr><td class='tabtd9'>Nearest City </td><td class='tabtd9'>Karanja Lad</td></tr><tr><td class='tabtd9'>District </td><td class='tabtd9'>Washim </td></tr><tr><td class='tabtd9'>State</td><td class='tabtd9'>Maharashtra </td></tr><tr><td class='tabtd9'>River Name</td><td class='tabtd9'>Adan </td></tr><tr><td class='tabtd9'>Type of Dam</td><td class='tabtd9'>Rolled Fill Earth Dam</td></tr><tr><td class='tabtd9'>Purpose of Dam</td><td class='tabtd9'>Irrigation</td></tr><tr><td class='tabtd9'>River Bed Level (m)</td><td class='tabtd9'>358.255</td></tr><tr><td class='tabtd9'>Ogee Crest Level (m)</td><td class='tabtd9'>374.50</td></tr><tr><td class='tabtd9'>Minimum Draw Down Level (m) </td><td class='tabtd9'>372.50  </td></tr><tr><td class='tabtd9'>Full Reservoir Level (m)</td><td class='tabtd9'>382.50</td></tr><tr><td class='tabtd9'>Maximum Water Level (m)</td><td class='tabtd9'>386.15 </td></tr><tr><td class='tabtd9'>Gross Storage Capacity (M.Cum.)</td><td class='tabtd9'>78.320</td></tr><tr><td class='tabtd9'>Live storage capacity (M.Cum.)</td><td class='tabtd9'>67.250</td></tr><tr><td class='tabtd9'>Type of Spillway</td><td class='tabtd9'>Ogee </td></tr><tr><td class='tabtd9'>Length of Spillway (m)</td><td class='tabtd9'>72.00</td></tr><tr><td class='tabtd9'>Type of Spillway Gates</td><td class='tabtd9'>Radial</td></tr><tr><td class='tabtd9'>Number of Spillway Gates</td><td class='tabtd9'>5</td></tr><tr><td class='tabtd9'>Size of Spillway Gates (m*m)</td><td class='tabtd9'>12*8</td></tr></table>
+  </div>
+
+  <div data-role="footer" data-position="fixed">
+	<h5 class="footerp1"></h5>
+  </div>
+</div>
+
+</body>
+
+   <script type="text/javascript">
+	jQuery(document).ready(function(){
+jQuery.ajax({
+url :"http://www.mechatronicspune.com/Android/adam/Current_Dam_Level.php",
+type :"POST",
+dataType :"JSON",
+data :"param=no",
+success : function(html){
+jQuery.each(html,function(key,value){
+var ab="<ul class='bar-chart' data-bars='["+value.reservoir_level+"]' data-max='388' data-unit='mtr' data-width='18'></ul>";
+	$("#id").html( ab );
+
+});
+$('.bar-chart').cssCharts({type:"bar"});
+}
+});
+ });
+</script>
+		<script type="text/javascript">
+
+					jQuery(document).ready(function(){
+					jQuery.ajax({
+					url :"http://www.mechatronicspune.com/Android/adam/Current_Dam_Level.php",
+					type :"POST",
+					dataType :"JSON",
+					data :"param=no",
+					success : function(html){
+					jQuery.each(html,function(key,value){
+
+					var a = "<div style='font-size: 12px;'>last Update: "+ value.XmlUploadedOn+" </div>";
+					//alert(value.reservoir_level);
+					$( ".footerp1" ).html(  a  );
+					
+					var gate = "<table class='tablepr' ><tr><th class='tabtd4'>Gate No</th><th class='tabtd4'>Openings are in Mtrs</th></tr><tr><td class='tabtd9'>Gate No :1 </td><td class='tabtd9'>"+value.G1+" </td></tr><tr><td class='tabtd9'>Gate No :2 </td><td class='tabtd9'>"+value.G2+" </td></tr><tr><td class='tabtd9'>Gate No :3 </td><td class='tabtd9'>"+value.G3+" </td></tr><tr><td class='tabtd9'>Gate No :4 </td><td class='tabtd9'>"+value.G4+" </td></tr><tr><td class='tabtd9'>Gate No :5 </td><td class='tabtd9'>"+value.G5+" </td></tr></table>";
+					//alert(value.reservoir_level);
+					$( ".gater" ).html(  gate  );
+					});
+
+					}
+					});
+
+					});
+					</script>
+		<script type="text/javascript">
+
+					jQuery(document).ready(function(){
+					jQuery.ajax({
+					url :"http://www.mechatronicspune.com/Android/adam/Current_Rain_River_Gauge_Data.php",
+					type :"POST",
+					dataType :"JSON",
+					data :"param=no",
+					success : function(html){
+					jQuery.each(html,function(key,value){
+					
+					
+					var rain = "<table class='tblb'><tr><th class='tabtd2' >Rain Gauge Stations</th><th class='tabtd2'>Today's Rain (mm)</th><th class='tabtd2'>Total Rain (mm)</th></tr><tr><td class='tabtd3'>SOHAD</td><td class='tabtd3'>"+value.todays_rain1+".00</td><td class='tabtd3'>"+value.Total_rain1+".00</td></tr><tr><td class='tabtd3'>KAVATHAL</td><td class='tabtd3'>"+value.todays_rain2+".00</td><td class='tabtd3'>"+value.Total_rain2+".00</td></tr></table>";
+					//alert(value.reservoir_level);
+					$( ".raingauges" ).html(  rain  );
+						
+						
+					var rever="<ul class='bar-chart' data-bars='["+value.reservoir_level+"]' data-max='388' data-unit='mtr' data-width='18'></ul>";	
+					var rever ="<table class='tblb'><tr><th class='tabtd4' >River Gauge Station</th><th class='tabtd4'>Level (Mtrs.)</th></tr><tr><td class='tabtd5'>BORI</td><td class='tabtd5'>"+value.river_guage1+".mtr</td><tr><td class='tabtd5'>SHIVANI</td><td class='tabtd5'>"+value.river_guage2+".mtr</tr><tr></table>";
+					
+					$(".revergauges").html( rever );
+					});
+
+					}
+					});
+
+					});
+					</script>
+
+			
+</style>
+					</html>

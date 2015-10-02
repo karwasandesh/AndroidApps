@@ -1,0 +1,89 @@
+<html>
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>
+
+            $(function() { 
+                    $('#username').val(localStorage.usrname);
+                    $('#pass').val(localStorage.pass);
+                    $('#remember_me').click(function() {
+                    localStorage.usrname = $('#username').val();
+                    localStorage.pass = $('#pass').val();
+
+             
+                });
+                           
+            });
+
+        </script>
+
+        <script type="text/javascript">
+
+        	$(document).ready(function(){
+$("#clear").click(function(){
+ localStorage.clear();
+   window.location = 'demo.html';
+});
+
+});
+
+        </script>
+        </head>
+        <body>
+        <div class="container">
+            <form class="form-signin">
+                <h2 class="form-signin-heading">Please sign in</h2>
+                <input type="text" class="input-block-level" placeholder="Email address" id='username'>
+                <input type="password" class="input-block-level" placeholder="Password" id="pass">
+                <label class="checkbox">
+                    <!-- <input type="checkbox" value="remember-me" id="remember_me"> Remember me -->
+                </label>
+                <button class="btn btn-large btn-primary" type="submit" id="remember_me">Sign in</button>
+<br><br>
+                 <button class="btn btn-large btn-primary" type="button" id="clear">Sign in</button>
+                 <!--  <input type="button" id="clear" value="clear"/>  -->
+
+            </form>
+        </div> 
+    </body>
+
+    
+<!--
+
+
+$('#my-form').on('submit', function() {
+    /* place your logic here… */
+
+
+
+
+
+    $(function() {
+
+    if (localStorage.checkBoxValidation && localStorage.checkBoxValidation != '') {
+        $('#rememberMe').attr('checked', 'checked');
+        $('#loginEmail').val(localStorage.userName);
+        $('#password').val(localStorage.password);
+    } else {
+        $('#rememberMe').removeAttr('checked');
+        $('#loginEmail').val('');
+        $('#password').val('');
+    }
+
+    $('#rememberMe').click(function() {
+
+        if ($('#rememberMe').is(':checked')) {
+            // save username and password
+            localStorage.userName = $('#loginEmail').val();
+            localStorage.password = $('#password').val();
+            localStorage.checkBoxValidation = $('#rememberMe').val();
+        } else {
+            localStorage.userName = '';
+            localStorage.password = '';
+            localStorage.checkBoxValidation = '';
+        }
+    });
+});
+http://jsfiddle.net/Benjol/HMEVd/
+});*/-->
+</html>

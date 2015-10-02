@@ -1,0 +1,44 @@
+﻿<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>cssCharts.js - jquery css charts</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<link rel="stylesheet" href="cssCharts.css">
+        <script src="jquery.chart.js"></script>
+	</head>
+    <body> 
+	<h2>bar chart</h2>
+        <div class="chart">
+
+        <ul class="bar-chart" data-bars="[]" data-max="345" data-unit="mtr" data-width="12"></ul>    
+        <div id="id"></div> 
+		<div style="margin-top: 5px;padding-top: 355px;
+    padding-left: 4px;">255 Mtr</div> 
+	
+    </div>
+
+	<hr width="20%" style="margin-top: -6px;"><p style="
+    padding: 1px 0px 0px 161px;
+    margin-top: -18px;
+">255</p>  
+</body>	
+ <script type="text/javascript">
+ jQuery(document).ready(function(){
+jQuery.ajax({
+url :"http://www.mechatronicspune.com/Android/upparvardha/Current_Dam_Leve.php",
+type :"POST",
+dataType :"JSON",
+data :"param=no",
+success : function(html){
+jQuery.each(html,function(key,value){
+var ab="<ul class='bar-chart' data-bars='["+value.reservoir_level+"]'  data-min='120' data-max='345'  data-unit='mtr' data-width='30'></ul>";
+$("#id").html( ab );
+$('.bar-chart').cssCharts({type:"bar"});
+});
+}
+});
+ });
+</script>  	
+
+</html>
